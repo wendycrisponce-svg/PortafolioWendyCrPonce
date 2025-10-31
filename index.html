@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio Ponce Wendy Cristina</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="javaS.js" defer></script>
+</head>
+<body>
+
+  <div id="pagina">
+    <header class="site-header">
+      <h1>Portafolio</h1>
+      <h2>Wendy Cristina Ponce</h2>
+    </header>
+
+    <nav class="menu" aria-label="Navegación principal">
+      <button id="btnQuienSoy" type="button" data-target="quien-soy">Quién soy</button>
+      <button id="btnFormacion" type="button" data-target="formacion-academica">Formación académica</button>
+      <button id="btnExperiencia" type="button" data-target="experiencia-laboral">Experiencia laboral</button>
+      <button id="btnIntereses" type="button" data-target="intereses">Intereses</button>
+      <button id="btnFooter" type="button" data-target="footer">Contacto</button>
+    </nav>
+
+    <main>
+      <section id="quien-soy" class="presentacion">
+        <h2>Quién soy</h2>
+        <p> Hola, mucho gusto. Me llamo Wendy y actualmente me encuentro en búsqueda activa de oportunidades laborales en el área de calidad.</p> <br>
+        <p>Me destaco por ser una persona organizada, detallista y comprometida con la mejora continua. Disfruto aprender de quienes me rodean, observar cómo se realiza cada tarea y buscar formas de optimizar procesos.</p> <br>
+        <p>Creo en el valor de trabajar en equipo, compartir conocimientos y mantener una actitud abierta para seguir creciendo profesionalmente. </p>
+      </section>
+
+      <section id="formacion-academica" class="formacion-academica">
+        <h2>Formación académica</h2>
+        <ol>
+          <li>Curso de Testing de aplicacion<p>CFP 14</p></li>
+          <li>Universidad Provincial de Ezeiza <p>Tec. Desarrollo de Software</p></li>
+          <li>Curso unity 2d <P> Talento Tech</P></li>
+        </ol>
+      </section>
+
+      <section id="experiencia-laboral" class="experiencia-laboral">
+        <h2>Experiencia laboral</h2>
+        <table>
+          
+          <thead>
+            <tr>
+              <th scope="col">Puesto</th>
+              <th scope="col">Empresa</th>
+              <th scope="col">Fechas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>QA Tester Jr</td>
+              <td>Tech Solutions</td>
+              <td>2022 - 2023</td>
+            </tr>
+            <tr>
+              <td>QA Manual</td>
+              <td>SoftDev</td>
+              <td>2023 - Actualidad</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="intereses" class="intereses">
+        <h2>Intereses</h2>
+        <img src="https://cdn-icons-png.flaticon.com/512/4203/4203304.png" alt="Interés 1" width="100" height="100" />
+        <img src="https://cdn-icons-png.flaticon.com/512/1797/1797934.png" alt="Interés 1" width="100" height="100" />
+        <img src="https://cdn-icons-png.flaticon.com/512/1924/1924303.png" alt="Interés 1" width="100" height="100" />
+        <img src="https://cdn-icons-png.flaticon.com/512/2949/2949757.png" alt="Interés 1" width="100" height="100" />
+        <img src="https://cdn-icons-png.flaticon.com/512/3938/3938605.png" alt="Interés 1" width="100" height="100" />
+        <img src="https://cdn-icons-png.flaticon.com/512/18510/18510668.png" alt="Interés 1" width="100" height="100" />
+        <img src="https://cdn-icons-png.flaticon.com/512/14686/14686590.png" alt="Organización visual" width="100" height="100" />
+
+      </section>
+    </main>
+
+    <footer id="footer" class="footer">
+      <h2>Contacto</h2>
+
+      <div class="contacto-wrapper">
+        <form class="contacto" aria-label="Formulario de contacto" novalidate>
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" required />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+
+          <label for="telefono">Teléfono</label>
+          <input id="telefono" name="telefono" type="tel" />
+
+          <label for="fecha">Fecha</label>
+          <input id="fecha" name="fecha" type="date" />
+
+          <label for="archivo">Archivo</label>
+          <input id="archivo" name="archivo" type="file" />
+
+          <label for="terminos">
+            <input id="terminos" name="terminos" type="checkbox" required />
+            Acepto términos y condiciones
+          </label>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+
+      <div class="social-icons" role="navigation" aria-label="Redes sociales">
+         <a href="https://discord.com/users/1237565414490243165" class="social-link" aria-label="Discord">
+           <img src="iconos\discord.png" alt="Discord" width="40" height="40" />
+         </a>
+         <a href="https://www.linkedin.com/in/wendy-cristina-ponce-540820286" class="social-link" aria-label="LinkedIn">
+            <img src="iconos/linkedin.png" alt="LinkedIn" width="40" height="40" />
+         </a>
+          <a href="https://github.com/wendycrisponce-svg" class="social-link" aria-label="GitHub">
+           <img src="iconos\github.png" alt="GitHub" width="40" height="40" />
+         </a>
+     </div>
+
+    </footer>
+  </div>
+
+</body>
+</html>
+<!-- ver videos y subir al git hut
+  
+echo "# Curso-Tester-Segundo-Cuatrimestre--trabajo-final-v2" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin [tu-repositorio.git]
+git push -u origin main-->
