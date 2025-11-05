@@ -36,3 +36,34 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => gotoSection(mapping[btnId]));
   });
 });
+
+
+//foco de aqui para abajo
+
+let focoEncendido = false;
+
+function encenderFoco() {
+  const foco = document.getElementById("imagenFoco");
+  const intereses = document.getElementById("intereses");
+  const zonaLuz = document.getElementById("zona-luz");
+
+  focoEncendido = !focoEncendido;
+
+  if (focoEncendido) {
+    foco.src = "intereses/foco_encendido.png";
+    foco.classList.add("encendido");
+    intereses.style.backgroundColor = "#FFFACD";
+    intereses.style.boxShadow = "0 0 40px #E6C20E";
+    zonaLuz.classList.add("visible");
+    zonaLuz.style.display = "flex";
+
+  } else {
+    foco.src = "intereses/foco_apagado.png";
+    foco.classList.remove("encendido");
+    intereses.style.backgroundColor = "#11238C";
+    intereses.style.boxShadow = "none";
+    zonaLuz.classList.remove("visible");
+   zonaLuz.style.display = "none";
+
+  }
+}
