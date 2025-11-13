@@ -1,15 +1,36 @@
+/* Fuentes Personalizadas */
+@font-face {
+  font-family: 'name';
+  src: url('fuentesTip/name.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'portafo';
+  src: url('fuentesTip/portafolio.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Times New Roman';
+  src: url('fuentesTip/Times New Roman.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Página */
 #pagina {
   display: block;
   height: auto;
   overflow: auto;
 }
-
 body {
   background-color: #0D0D0D;
   color: #BABEBF;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Times New Roman', serif;
   margin: 0;
   padding: 0;
+  transition: background-color 1s ease;
 }
 
 /* Cabecera */
@@ -18,11 +39,21 @@ header {
   color: #BABEBF;
   text-align: center;
   padding: 60px 20px;
-  font-size: 2.5rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
+header h1 {
+  font-family: 'name', sans-serif; 
+  font-size: 8rem;
+  margin: 0;
+  padding: 40px;
+}
+header h2 {
+  font-family: 'portafo', sans-serif;
+  font-size: 3rem;
+  margin: 0;
+}
 
-/* Menú de navegación */
+/* Menú */
 .menu {
   display: flex;
   justify-content: center;
@@ -31,7 +62,6 @@ header {
   padding: 20px;
   background-color: #1858D9;
 }
-
 .menu button {
   background-color: #0F47F2;
   color: white;
@@ -39,10 +69,10 @@ header {
   padding: 12px 20px;
   border-radius: 8px;
   font-size: 1rem;
+  font-family: 'Times New Roman', serif;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
 }
-
 .menu button:hover {
   background-color: #11238C;
   transform: scale(1.05);
@@ -50,40 +80,40 @@ header {
 
 /* Secciones */
 section {
-  margin: 40px auto;
+  margin: 20px auto;
   padding: 30px;
   border-radius: 10px;
   max-width: 800px;
   background-color: #11238C;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
-
-.presentacion {
-  background-color: #11238C;
-  color: #BABEBF;
+.presentacion h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.presentacion p {
+  font-size: 1.2rem;
+  line-height: 1.6;
 }
 
+/* Formación */
 .formacion-academica ol {
   color: #BABEBF;
   font-size: 1.1rem;
+  background-image: url('iconos/formacion.png');
+  background-repeat: no-repeat;
+  background-size: 250px 250px; 
+  background-position: 90% center;
+  padding-right: 160px;
+  list-style: none;
 }
-.formacion-academica img{
-  width: 200px;
-  height: 200px;
-  display: flex;
-  margin: auto;
-  padding-left: 80px;
-}
 
-
-
-
+/* Experiencia */
 .experiencia-laboral table {
   width: 100%;
   border-collapse: collapse;
   color: #BABEBF;
 }
-
 .experiencia-laboral th,
 .experiencia-laboral td {
   border: 1px solid #1858D9;
@@ -93,32 +123,107 @@ section {
 
 /* Intereses */
 .intereses {
-  text-align: center;
   background-color: #11238C;
- 
-  transition: background-color 1s ease, box-shadow 1s ease;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  overflow: hidden;
 }
-
-.intereses img {
+.foco {
   width: 100px;
   height: 100px;
+  margin: 10px auto 20px;
+  display: inline-block;
+}
+.zona-luz {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+.zona-luz.visible {
+  display: flex;
+}
+
+/* Tarjetas de intereses */
+.icono-card {
+  width: 140px;
+  height: 200px;
+  position: relative;
+  perspective: 1000px;
   margin: 10px;
+}
+.icono-card .cara {
+  position: absolute;
+  inset: 0;
   border-radius: 10px;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  backface-visibility: hidden;
+  transition: transform 0.6s ease, opacity 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12px;
+  box-sizing: border-box;
+}
+.icono-card .frente {
+  background: transparent;
+  transform: rotateY(0deg);
+}
+.icono-card .frente img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.icono-card .reverso {
+  background-color: #FFFACD;
+  color: #0D0D0D;
+  transform: rotateY(180deg);
+  opacity: 0;
 }
 
-.intereses img:hover {
-  transform: scale(1.1);
-  filter: brightness(1.2);
+/* Contenido del reverso */
+.contenido-reverso {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+  line-height: 1.4;
+  font-size: 0.92rem;
+  padding: 6px;
+  color: #0D0D0D;
 }
 
-/* Footer y formulario */
+/* Estado activo */
+.icono-card.activo .frente {
+  transform: rotateY(180deg);
+}
+.icono-card.activo .reverso {
+  transform: rotateY(0deg);
+  opacity: 1;
+}
+
+/* Título debajo del icono */
+.titulo-icono {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: -22px;
+  font-size: 0.9rem;
+  color: #BABEBF;
+  font-family: 'Times New Roman', serif;
+  text-align: center;
+}
+.icono-card.activo .titulo-icono {
+  opacity: 0;
+}
+
+/* Footer */
 .footer {
   background-color: #1858D9;
   padding: 40px 20px;
   text-align: center;
 }
-
 .footer form {
   display: flex;
   flex-direction: column;
@@ -126,7 +231,6 @@ section {
   max-width: 500px;
   margin: auto;
 }
-
 .footer input,
 .footer button {
   padding: 10px;
@@ -134,7 +238,6 @@ section {
   border: none;
   font-size: 1rem;
 }
-
 .footer input[type="text"],
 .footer input[type="email"],
 .footer input[type="tel"],
@@ -143,104 +246,15 @@ section {
   background-color: #BABEBF;
   color: #0D0D0D;
 }
-
 .footer button {
   background-color: #0F47F2;
   color: white;
   cursor: pointer;
   transition: background 0.3s ease;
 }
-
 .footer button:hover {
   background-color: #11238C;
 }
-
 .social-icons {
   margin-top: 20px;
-}
-
-body {
-  transition: background-color 1s ease;
-}
-
-.icono-card {
-  display: inline-block;
-  margin: 10px;
-  text-align: center;
-  transition: transform 0.6s;
-}
-
-.icono-card:hover {
-  transform: rotateY(180deg);
-}
-
-.texto-icono {
-  display: none;
-}
-
-.icono-card:hover .texto-icono {
-  display: block;
-}
-
-
-.foco.encendido {
-  animation: pulsoLuz 2s infinite ease-in-out;
-  filter: drop-shadow(0 0 12px #f7e600);
-}
-.icono-card {
-  width: 120px;
-  height: 180px;
-  margin: 10px;
-  display: inline-block;
-  perspective: 1000px;
-  position: relative;
-  text-align: center;
-}
-
-.icono-card .cara {
-  width: 100%;
-  height: 120px;
-  position: absolute;
-  backface-visibility: hidden;
-  border-radius: 10px;
-  transition: transform 0.6s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.icono-card .frente {
-  transform: rotateY(0deg);
-  background-color: transparent;
-}
-
-.icono-card .reverso {
-  transform: rotateY(180deg);
-  background-color: #FFFACD;
-  color: #0D0D0D;
-  font-weight: bold;
-  text-align: center;
-}
-
-.icono-card:hover .frente {
-  transform: rotateY(180deg);
-}
-
-.icono-card:hover .reverso {
-  transform: rotateY(0deg);
-}
-
-.icono-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.titulo-icono {
-  margin-top: 130px;
-  font-size: 0.9rem;
-  color: #BABEBF;
 }

@@ -1,8 +1,6 @@
 console.log('script cargado');
 
 document.addEventListener('DOMContentLoaded', () => {
-  const pagina = document.getElementById('pagina');
-
   const mapping = {
     btnQuienSoy: 'quien-soy',
     btnFormacion: 'formacion-academica',
@@ -37,9 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-
-//foco de aqui para abajo
-
+// --- Foco ---
 let focoEncendido = false;
 
 function encenderFoco() {
@@ -56,14 +52,23 @@ function encenderFoco() {
     intereses.style.boxShadow = "0 0 40px #E6C20E";
     zonaLuz.classList.add("visible");
     zonaLuz.style.display = "flex";
-
   } else {
     foco.src = "intereses/foco_apagado.png";
     foco.classList.remove("encendido");
     intereses.style.backgroundColor = "#11238C";
     intereses.style.boxShadow = "none";
     zonaLuz.classList.remove("visible");
-   zonaLuz.style.display = "none";
-
+    zonaLuz.style.display = "none";
   }
+}
+
+// --- Activar ícono y desplazar los demás ---
+function activarIcono(card) {
+  // Quitar la clase activo de todos los íconos
+  document.querySelectorAll('.icono-card').forEach(c => {
+    c.classList.remove('activo');
+  });
+
+  // Agregar la clase activo al ícono clicado
+  card.classList.add('activo');
 }
